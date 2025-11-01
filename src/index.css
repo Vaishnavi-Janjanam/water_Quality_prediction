@@ -1,0 +1,131 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Water Quality Platform Design System - Light Theme with Water Aesthetics
+All colors are HSL. Ocean-inspired gradients and animations.
+*/
+
+@layer base {
+  :root {
+    /* Core water-themed palette */
+    --background: 195 100% 98%;
+    --foreground: 205 87% 15%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 205 87% 15%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 205 87% 15%;
+
+    /* Primary - Deep Ocean Blue */
+    --primary: 205 87% 28%;
+    --primary-foreground: 195 100% 98%;
+    
+    /* Primary variations for gradients */
+    --primary-light: 195 80% 45%;
+    --primary-dark: 205 95% 20%;
+
+    /* Secondary - Aqua Teal */
+    --secondary: 175 70% 88%;
+    --secondary-foreground: 205 87% 15%;
+
+    /* Muted - Soft water tones */
+    --muted: 195 50% 95%;
+    --muted-foreground: 205 25% 45%;
+
+    /* Accent - Bright water blue */
+    --accent: 195 85% 70%;
+    --accent-foreground: 205 87% 15%;
+
+    /* Status colors for water quality */
+    --excellent: 145 85% 47%;
+    --good: 98 84% 47%;
+    --poor: 45 93% 58%;
+    --very-poor: 25 95% 53%;
+    --unfit: 0 84% 60%;
+    
+    /* Destructive */
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 195 60% 90%;
+    --input: 195 60% 95%;
+    --ring: 195 85% 70%;
+
+    --radius: 0.75rem;
+    
+    /* Water-themed gradients */
+    --gradient-ocean: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-light)));
+    --gradient-water: linear-gradient(180deg, hsl(var(--accent) / 0.1), hsl(var(--secondary) / 0.3));
+    --gradient-wave: linear-gradient(90deg, hsl(var(--primary-light) / 0.2), hsl(var(--accent) / 0.4));
+    
+    /* Shadows with water effects */
+    --shadow-water: 0 8px 32px hsl(var(--primary) / 0.15);
+    --shadow-float: 0 4px 20px hsl(var(--accent) / 0.25);
+    --shadow-glow: 0 0 40px hsl(var(--primary-light) / 0.3);
+    
+    /* Animation timings */
+    --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+    /* Sidebar variables for compatibility */
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground overflow-x-hidden;
+    background: linear-gradient(135deg, hsl(var(--background)), hsl(var(--secondary) / 0.3));
+  }
+}
+
+@layer components {
+  /* Interactive hover effects */
+  .water-card {
+    @apply transition-all duration-300;
+    box-shadow: var(--shadow-water);
+  }
+  
+  .water-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-glow);
+  }
+  
+  /* Parameter input styling */
+  .param-input {
+    @apply transition-all duration-300 border-2;
+    background: linear-gradient(135deg, hsl(var(--card)), hsl(var(--secondary) / 0.1));
+  }
+  
+  .param-input:focus {
+    @apply border-accent;
+    box-shadow: 0 0 0 3px hsl(var(--accent) / 0.2);
+  }
+  
+  /* Quality indicator colors */
+  .quality-excellent { @apply bg-green-500 text-white; }
+  .quality-good { @apply bg-green-400 text-white; }
+  .quality-poor { @apply bg-yellow-500 text-white; }
+  .quality-very-poor { @apply bg-orange-500 text-white; }
+  .quality-unfit { @apply bg-red-500 text-white; }
+}
+
+@layer utilities {
+  .text-gradient {
+    background: var(--gradient-ocean);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+}
