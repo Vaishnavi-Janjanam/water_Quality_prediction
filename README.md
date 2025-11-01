@@ -71,6 +71,4 @@ The system analyzes 7 key water quality parameters:
 - Biochemical Oxygen Demand (mg/L)
 - Nitrate (mg/L)
 - Fecal Coliform (MPN/100ml)
-## Public url of this project
 
-https://waterwise-forecast.lovable.app/
